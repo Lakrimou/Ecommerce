@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orderdetail</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ orderDetail.id }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ orderDetail.price }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ orderDetail.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ orderDetail.total }}</td>
+            </tr>
+            <tr>
+                <th>Ordernumber</th>
+                <td>{{ orderDetail.orderNumber }}</td>
+            </tr>
+            <tr>
+                <th>Shipdate</th>
+                <td>{% if orderDetail.shipDate %}{{ orderDetail.shipDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Fulfilled</th>
+                <td>{% if orderDetail.fulfilled %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('orderdetails_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('orderdetails_edit', { 'id': orderDetail.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

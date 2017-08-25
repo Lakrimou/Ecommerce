@@ -1,7 +1,23 @@
-<form action="{{ path('admin_login_check') }}" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="_username" id="username"><br>
-    <label for="password">Mot de passe</label>
-    <input type="password" id="password" name="_password">
-    <input type="submit" name="_submit" id="submit" value="se connecter">
-</form>
+{% extends "::layout.html.twig" %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <form role="form" method="post" action="{{ path('admin_login_check') }}">
+        <fieldset>
+            <div class="form-group">
+                <input class="form-control" placeholder="E-mail" name="_username" id="_username" type="text" autofocus>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="_password" placeholder="Password" name="_password" type="password" value="">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input id="remember_me" name="_remember_me" value="on" type="checkbox" value="Remember Me">Remember Me
+                </label>
+            </div>
+            <!-- Change this to a button or input when using this as a form -->
+            <input type="submit" id="_submit" name="_submit" class="btn btn-lg btn-success btn-block" value="login">
+        </fieldset>
+    </form>
+{% endblock %}

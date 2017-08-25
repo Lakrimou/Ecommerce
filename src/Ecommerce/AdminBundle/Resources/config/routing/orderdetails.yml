@@ -1,0 +1,24 @@
+orderdetails_index:
+    path:     /
+    defaults: { _controller: "EcommerceAdminBundle:OrderDetails:index" }
+    methods:  GET
+
+orderdetails_show:
+    path:     /{id}/show
+    defaults: { _controller: "EcommerceAdminBundle:OrderDetails:show" }
+    methods:  GET
+
+orderdetails_new:
+    path:     /new
+    defaults: { _controller: "EcommerceAdminBundle:OrderDetails:new" }
+    methods:  [GET, POST]
+
+orderdetails_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EcommerceAdminBundle:OrderDetails:edit" }
+    methods:  [GET, POST]
+
+orderdetails_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EcommerceAdminBundle:OrderDetails:delete" }
+    methods:  DELETE

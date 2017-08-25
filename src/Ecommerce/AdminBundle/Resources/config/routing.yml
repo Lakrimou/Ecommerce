@@ -1,3 +1,23 @@
+ecommerce_admin_orderdetails:
+    resource: "@EcommerceAdminBundle/Resources/config/routing/orderdetails.yml"
+    prefix:   /orderdetails
+
+ecommerce_admin_category:
+    resource: "@EcommerceAdminBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+ecommerce_admin_orders:
+    resource: "@EcommerceAdminBundle/Resources/config/routing/orders.yml"
+    prefix:   /orders
+
+ecommerce_admin_product:
+    resource: "@EcommerceAdminBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+ecommerce_admin_shippers:
+    resource: "@EcommerceAdminBundle/Resources/config/routing/shippers.yml"
+    prefix:   /shippers
+
 ecommerce_admin_homepage:
     path:     admin/akrem
     defaults: { _controller: EcommerceAdminBundle:Default:index }

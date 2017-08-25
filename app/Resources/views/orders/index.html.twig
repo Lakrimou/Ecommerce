@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Orders list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ordernumber</th>
+                <th>Orderdate</th>
+                <th>Paid</th>
+                <th>Requireddate</th>
+                <th>Paimentdate</th>
+                <th>Deleted</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            <tr>
+                <td><a href="{{ path('orders_show', { 'id': order.id }) }}">{{ order.id }}</a></td>
+                <td>{{ order.orderNumber }}</td>
+                <td>{% if order.orderDate %}{{ order.orderDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if order.paid %}Yes{% else %}No{% endif %}</td>
+                <td>{% if order.requiredDate %}{{ order.requiredDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if order.paimentDate %}{{ order.paimentDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if order.deleted %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('orders_show', { 'id': order.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('orders_edit', { 'id': order.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('orders_new') }}">Create a new order</a>
+        </li>
+    </ul>
+{% endblock %}

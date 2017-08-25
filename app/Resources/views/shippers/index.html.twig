@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Shippers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Companyname</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shipper in shippers %}
+            <tr>
+                <td><a href="{{ path('shippers_show', { 'id': shipper.id }) }}">{{ shipper.id }}</a></td>
+                <td>{{ shipper.companyName }}</td>
+                <td>{{ shipper.phone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('shippers_show', { 'id': shipper.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('shippers_edit', { 'id': shipper.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('shippers_new') }}">Create a new shipper</a>
+        </li>
+    </ul>
+{% endblock %}

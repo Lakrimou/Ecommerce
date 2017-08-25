@@ -1,10 +1,11 @@
+
 ecommerce_user:
     resource: "@EcommerceUserBundle/Resources/config/routing.yml"
     prefix:   /
 
 ecommerce_admin:
     resource: "@EcommerceAdminBundle/Resources/config/routing.yml"
-    prefix:
+    prefix:    /admin
 
 app:
     resource: '@AppBundle/Controller/'

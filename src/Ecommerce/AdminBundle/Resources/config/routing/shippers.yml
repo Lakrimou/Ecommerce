@@ -1,0 +1,24 @@
+shippers_index:
+    path:     /
+    defaults: { _controller: "EcommerceAdminBundle:Shippers:index" }
+    methods:  GET
+
+shippers_show:
+    path:     /{id}/show
+    defaults: { _controller: "EcommerceAdminBundle:Shippers:show" }
+    methods:  GET
+
+shippers_new:
+    path:     /new
+    defaults: { _controller: "EcommerceAdminBundle:Shippers:new" }
+    methods:  [GET, POST]
+
+shippers_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "EcommerceAdminBundle:Shippers:edit" }
+    methods:  [GET, POST]
+
+shippers_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "EcommerceAdminBundle:Shippers:delete" }
+    methods:  DELETE
